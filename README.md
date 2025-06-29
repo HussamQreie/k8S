@@ -42,7 +42,12 @@ openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outfor
 echo -e "\nkubeadm join $(hostname -I | awk '{print $1}'):6443 --token $(kubeadm token create) --discovery-token-ca-cert-hash sha256:$(openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //')"
 ```
 
-##### example
+##### example (not working only for testing)
 ```sh
 sudo kubeadm join 10.0.2.15:6443 --token wsq7c1.4gemi4h4hp4ao0yn --discovery-token-ca-cert-hash sha256:bb26c4093de064eecd322694979a3e0ca276f475c6dd156598cc02179ca34afb
+```
+##### example 2 (worked in that case)
+```sh
+kubeadm join 10.0.0.10:6443 --token b0qfkj.q5um3b77qlebsvju \
+	--discovery-token-ca-cert-hash sha256:66bcbd41bc075363f4833a3ab70785a4df814778c0e05d993033596a48f99e9f 
 ```
