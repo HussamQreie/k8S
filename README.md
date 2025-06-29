@@ -48,6 +48,6 @@ sudo kubeadm join 10.0.2.15:6443 --token wsq7c1.4gemi4h4hp4ao0yn --discovery-tok
 ```
 ##### example 2 (worked in that case)
 ```sh
-kubeadm join 10.0.0.10:6443 --token b0qfkj.q5um3b77qlebsvju \
+sudo kubeadm join 10.0.0.10:6443 --token b0qfkj.q5um3b77qlebsvju \
 	--discovery-token-ca-cert-hash sha256:66bcbd41bc075363f4833a3ab70785a4df814778c0e05d993033596a48f99e9f 
 ```
