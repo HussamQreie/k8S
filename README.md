@@ -4,7 +4,18 @@ This Main repo for k8s.
 vagrant up, ->(book) init, (fromHere-CommandFile) install cni on master node then (book) join workers. (goodluck)
 
 ---
+##### Initlize Kubernetes using kubeadm
 
+```sh
+sudo kubeadm init --apiserver-advertise-address 10.0.0.10 --pod-network-cidr 192.168.0.1/16
+```
+
+##### Allow user interact with kubernetes cluster
+```sh
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
 ##### Install CNI on master node
 ```sh
 kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
