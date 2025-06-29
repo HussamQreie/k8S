@@ -5,6 +5,16 @@ vagrant up, ->(book) init, (fromHere-CommandFile) install cni on master node the
 
 ---
 
+##### Install CNI on master node
+```sh
+kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+```
+
+
+
+
+---
+
 ##### Get Token
 ```sh
 kubeadm token -h
